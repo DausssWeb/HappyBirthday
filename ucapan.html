@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ucapan untuk Amelia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      color: #333;
+      text-align: center;
+      padding: 40px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+      overflow: hidden;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #b33939;
+      margin-bottom: 20px;
+    }
+
+    #typing {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      border-right: 2px solid #e84393;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #e84393; }
+    }
+
+    .heart {
+      font-size: 3em;
+      animation: pulse 1s infinite;
+      color: #e84393;
+      margin: 20px 0;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .back {
+      text-decoration: none;
+      background-color: #e84393;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1em;
+      transition: background 0.3s;
+    }
+
+    .back:hover {
+      background-color: #d63031;
+    }
+
+    .bunga {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: jatuh 5s linear infinite;
+    }
+
+    @keyframes jatuh {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Untukmu, Amelia 🌸</h1>
+
+  <!-- Efek Typing -->
+  <div id="typing"></div>
+
+  <div class="heart">❤️</div>
+
+  <p>
+    Semoga semua keinginanmu hari ini tercapai, dan semoga tahun ini membawa lebih banyak cinta, tawa, dan petualangan untukmu.<br>
+    Ingatlah, apapun yang terjadi, aku akan selalu ada di sisimu. Selamat ulang tahun, sayangku.
+  </p>
+
+  <a class="back" href="index.html">Kembali ke Halaman Utama</a>
+
+  <!-- Musik Latar Baru -->
+  <audio autoplay loop>
+    <source src="https://raw.githubusercontent.com/DausssWeb/HappyBirthday/main/Daylight (Instrumental).mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <!-- Bunga Jatuh -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      let bunga = document.createElement("div");
+      bunga.classList.add("bunga");
+      bunga.style.left = Math.random() * 100 + "vw";
+      bunga.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      bunga.style.width = bunga.style.height = Math.random() * 10 + 10 + "px";
+      bunga.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 85%)`;
+      document.body.appendChild(bunga);
+    }
+
+    // Efek Typing
+    const text = `Di hari istimewamu ini, aku ingin mengucapkan betapa bersyukurnya aku bisa mengenalmu dan memiliki kamu dalam hidupku.\nKamu adalah cahaya yang selalu membuat hariku lebih terang.`;
+    const typingElement = document.getElementById("typing");
+    let index = 0;
+
+    function type() {
+      if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 50);
+      }
+    }
+    type();
+  </script>
+</body>
+</html>
